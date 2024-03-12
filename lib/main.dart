@@ -1,3 +1,4 @@
+import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 
 void main() {
@@ -18,9 +19,17 @@ class CalculatorApp extends StatefulWidget {
 class _CalculatorAppState extends State<CalculatorApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black,
-      body: Container(),
+      body: Column(
+        children: [
+          Expanded(
+              child: Container(
+                color: Colors.red,
+              )
+          ),
+        ],
+      ),
     );
   }
 }
