@@ -32,33 +32,37 @@ class _CalculatorAppState extends State<CalculatorApp> {
           ),
           Row(
             children: [
-              Expanded(
-                  child: Container(
-                    margin: EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                          padding: const EdgeInsets.all(22),
-                          backgroundColor: buttonColor
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Hello",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  )
-              ),
+
             ],
           )
         ],
       ),
+    );
+  }
+
+  Widget button() {
+    return Expanded(
+        child: Container(
+          margin: EdgeInsets.all(8.0),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                padding: const EdgeInsets.all(22),
+                backgroundColor: buttonColor
+            ),
+            onPressed: () {},
+            child: const Text(
+              "Hello",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        )
     );
   }
 }
