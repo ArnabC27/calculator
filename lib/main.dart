@@ -23,6 +23,40 @@ class _CalculatorAppState extends State<CalculatorApp> {
   double secondNum = 0.0;
   var input = '';
   var output = '';
+  var operation = '';
+
+  onButtonClick(value) {
+    print(value);
+
+    if (value == 'AC') {
+      input = '';
+      output = '';
+    }
+    else if (value == '<') {
+      if (input.isNotEmpty) {
+        input = input.substring(0, input.length - 1);
+      }
+    }
+    else if (value == '+' || value == '-' || value == 'x' || value == '/') {
+      firstNum = double.parse(input);
+      operation = value;
+      input = '';
+    }
+    else if (value == '=') {
+      secondNum = double.parse(input);
+      if (operation == '+') {
+        output = (firstNum + secondNum).toString();
+      }
+      if (operation == '-') {
+        output = (firstNum - secondNum).toString();
+      }
+      if (operation == 'x') {
+        output = (firstNum * secondNum).toString();
+      }
+      if (operation == '/') {
+        output = (firstNum / secondNum).toString();
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +74,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      'Input',
+                      input,
                       style: TextStyle(
                         fontSize: 48,
                         color: Colors.white,
@@ -50,7 +84,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                       height: 20,
                     ),
                     Text(
-                      'Input',
+                      output,
                       style: TextStyle(
                         fontSize: 34,
                         color: Colors.white.withOpacity(0.7),
@@ -120,7 +154,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                 padding: const EdgeInsets.all(22),
                 backgroundColor: buttonBgColor
             ),
-            onPressed: () {},
+            onPressed: () => onButtonClick(text),
             child: Text(
               text,
               style: TextStyle(
