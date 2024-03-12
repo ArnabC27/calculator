@@ -43,7 +43,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
     );
   }
 
-  Widget button(String text) {
+  Widget button({text, textColor = Colors.white, buttonBgColor = buttonColor}) {
     return Expanded(
         child: Container(
           margin: EdgeInsets.all(8.0),
@@ -53,14 +53,14 @@ class _CalculatorAppState extends State<CalculatorApp> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 padding: const EdgeInsets.all(22),
-                backgroundColor: buttonColor
+                backgroundColor: buttonBgColor
             ),
             onPressed: () {},
             child: Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
-                color: Colors.white,
+                color: textColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
