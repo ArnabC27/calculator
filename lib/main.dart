@@ -25,6 +25,8 @@ class _CalculatorAppState extends State<CalculatorApp> {
   var input = '';
   var output = '';
   var operation = '';
+  var hideInput = false;
+  var outputSize = 30.0;
 
   onButtonClick(value) {
     print(value);
@@ -39,13 +41,28 @@ class _CalculatorAppState extends State<CalculatorApp> {
       }
     }
     else if (value == '=') {
-      var userInput = input;
-      userInput = input.replaceAll('x', '*');
-      Parser p = Parser();
-      Expression exp = p.parse(userInput);
-      ContextModel cm = ContextModel();
-      double eval = exp.evaluate(EvaluationType.REAL, cm);
+      if(input.isNotEmpty) {
+        var userInput = input;
+        userInput = input.replaceAll('x', '*');
+        Parser p = Parser();
+        Expression exp = p.parse(userInput);
+        ContextModel cm = ContextModel();
+        var finalValue = exp.evaluate(EvaluationType.REAL, cm);
+        output = finalValue.toString();
+        if(output.endsWith('.0')) {
+          output = output.substring(0, output.length-2);
+        }
+        input = output;
+
+      }
     }
+    else {
+      input = input + value;
+    }
+
+    setState(() {
+
+    });
   }
 
   @override
@@ -64,7 +81,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      input,
+                      hideInput ? '' : input,
                       style: TextStyle(
                         fontSize: 48,
                         color: Colors.white,
@@ -76,7 +93,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     Text(
                       output,
                       style: TextStyle(
-                        fontSize: 34,
+                        fontSize: outputSize,
                         color: Colors.white.withOpacity(0.7),
                       ),
                     ),
