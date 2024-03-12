@@ -19,6 +19,11 @@ class CalculatorApp extends StatefulWidget {
 }
 
 class _CalculatorAppState extends State<CalculatorApp> {
+  double firstNum = 0.0;
+  double secondNum = 0.0;
+  var input = '';
+  var output = '';
+
   @override
   Widget build(BuildContext context) {
     const IconData backspace = IconData(0xe0c5, fontFamily: 'MaterialIcons', matchTextDirection: true);
@@ -42,14 +47,17 @@ class _CalculatorAppState extends State<CalculatorApp> {
                       ),
                     ),
                     SizedBox(
-                      height: 40,
+                      height: 20,
                     ),
                     Text(
                       'Input',
                       style: TextStyle(
-                        fontSize: 48,
-                        color: Colors.white,
+                        fontSize: 34,
+                        color: Colors.white.withOpacity(0.7),
                       ),
+                    ),
+                    SizedBox(
+                      height: 30,
                     ),
                   ],
                 ),
