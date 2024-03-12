@@ -21,6 +21,7 @@ class CalculatorApp extends StatefulWidget {
 class _CalculatorAppState extends State<CalculatorApp> {
   @override
   Widget build(BuildContext context) {
+    const IconData backspace = IconData(0xe0c5, fontFamily: 'MaterialIcons', matchTextDirection: true);
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
@@ -32,10 +33,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
           ),
           Row(
             children: [
-              button(text: 'AC'),
-              button(text: '<-'),
-              button(text: '+/-'),
-              button(text: '/'),
+              button(text: 'AC', textColor: orangeColor, buttonBgColor: operatorColor),
+              button(text: '<', textColor: orangeColor, buttonBgColor: operatorColor),
+              button(text: '+/-', buttonBgColor: operatorColor),
+              button(text: '/', buttonBgColor: operatorColor),
             ],
           ),
           Row(
@@ -43,7 +44,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
               button(text: '7'),
               button(text: '8'),
               button(text: '9'),
-              button(text: 'x'),
+              button(text: 'x', buttonBgColor: operatorColor),
             ],
           ),
           Row(
@@ -51,7 +52,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
               button(text: '4'),
               button(text: '5'),
               button(text: '6'),
-              button(text: '-'),
+              button(text: '-', buttonBgColor: operatorColor),
             ],
           ),
           Row(
@@ -59,14 +60,14 @@ class _CalculatorAppState extends State<CalculatorApp> {
               button(text: '1'),
               button(text: '2'),
               button(text: '3'),
-              button(text: '+'),
+              button(text: '+', buttonBgColor: operatorColor),
             ],
           ),
           Row(
             children: [
-              button(text: '%'),
+              button(text: '%', buttonBgColor: operatorColor),
               button(text: '0'),
-              button(text: '.'),
+              button(text: '.', buttonBgColor: operatorColor),
               button(text: '=', buttonBgColor: orangeColor),
             ],
           ),
