@@ -32,7 +32,10 @@ class _CalculatorAppState extends State<CalculatorApp> {
           ),
           Row(
             children: [
-              button(),
+              button('1'),
+              button('2'),
+              button('3'),
+              button('4'),
             ],
           )
         ],
@@ -40,7 +43,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
     );
   }
 
-  Widget button() {
+  Widget button(String text) {
     return Expanded(
         child: Container(
           margin: EdgeInsets.all(8.0),
@@ -53,9 +56,9 @@ class _CalculatorAppState extends State<CalculatorApp> {
                 backgroundColor: buttonColor
             ),
             onPressed: () {},
-            child: const Text(
-              "Hello",
-              style: TextStyle(
+            child: Text(
+              text,
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
