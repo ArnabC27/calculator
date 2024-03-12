@@ -1,9 +1,11 @@
+import "package:calculator/colors.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 
 void main() {
   runApp(
-      MaterialApp(
+      const MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: CalculatorApp(),
       )
   );
@@ -19,15 +21,39 @@ class CalculatorApp extends StatefulWidget {
 class _CalculatorAppState extends State<CalculatorApp> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         children: [
           Expanded(
               child: Container(
-                color: Colors.red,
+                color: Colors.cyan,
               )
           ),
+          Row(
+            children: [
+              Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.all(22),
+                          backgroundColor: buttonColor
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        "Hello",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  )
+              ),
+            ],
+          )
         ],
       ),
     );
