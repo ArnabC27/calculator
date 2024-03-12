@@ -28,7 +28,31 @@ class _CalculatorAppState extends State<CalculatorApp> {
         children: [
           Expanded(
               child: Container(
-                color: Colors.cyan,
+                width: double.infinity,
+                padding: EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Input',
+                      style: TextStyle(
+                        fontSize: 48,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Text(
+                      'Input',
+                      style: TextStyle(
+                        fontSize: 48,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
               )
           ),
           Row(
