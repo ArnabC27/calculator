@@ -32,12 +32,44 @@ class _CalculatorAppState extends State<CalculatorApp> {
           ),
           Row(
             children: [
-              button('1'),
-              button('2'),
-              button('3'),
-              button('4'),
+              button(text: 'AC'),
+              button(text: '<-'),
+              button(text: '+/-'),
+              button(text: '/'),
             ],
-          )
+          ),
+          Row(
+            children: [
+              button(text: '7'),
+              button(text: '8'),
+              button(text: '9'),
+              button(text: 'x'),
+            ],
+          ),
+          Row(
+            children: [
+              button(text: '4'),
+              button(text: '5'),
+              button(text: '6'),
+              button(text: '-'),
+            ],
+          ),
+          Row(
+            children: [
+              button(text: '1'),
+              button(text: '2'),
+              button(text: '3'),
+              button(text: '+'),
+            ],
+          ),
+          Row(
+            children: [
+              button(text: '%'),
+              button(text: '0'),
+              button(text: '.'),
+              button(text: '=', buttonBgColor: orangeColor),
+            ],
+          ),
         ],
       ),
     );
