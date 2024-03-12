@@ -37,6 +37,9 @@ class _CalculatorAppState extends State<CalculatorApp> {
                     margin: EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
                           padding: const EdgeInsets.all(22),
                           backgroundColor: buttonColor
                       ),
