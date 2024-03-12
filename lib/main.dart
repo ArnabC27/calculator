@@ -53,11 +53,14 @@ class _CalculatorAppState extends State<CalculatorApp> {
           output = output.substring(0, output.length-2);
         }
         input = output;
-
+        hideInput = true;
+        outputSize = 50.0;
       }
     }
     else {
       input = input + value;
+      hideInput = false;
+      outputSize = 30.0;
     }
 
     setState(() {
@@ -94,7 +97,8 @@ class _CalculatorAppState extends State<CalculatorApp> {
                       output,
                       style: TextStyle(
                         fontSize: outputSize,
-                        color: Colors.white.withOpacity(0.7),
+                        //color: Colors.white.withOpacity(0.7),
+                        color: orangeColor,
                       ),
                     ),
                     SizedBox(
