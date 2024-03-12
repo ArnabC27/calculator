@@ -1,6 +1,7 @@
 import "package:calculator/colors.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:math_expressions/math_expressions.dart";
 
 void main() {
   runApp(
@@ -37,25 +38,14 @@ class _CalculatorAppState extends State<CalculatorApp> {
         input = input.substring(0, input.length - 1);
       }
     }
-    else if (value == '+' || value == '-' || value == 'x' || value == '/') {
-      firstNum = double.parse(input);
-      operation = value;
-      input = '';
-    }
     else if (value == '=') {
-      secondNum = double.parse(input);
-      if (operation == '+') {
-        output = (firstNum + secondNum).toString();
-      }
-      if (operation == '-') {
-        output = (firstNum - secondNum).toString();
-      }
-      if (operation == 'x') {
-        output = (firstNum * secondNum).toString();
-      }
-      if (operation == '/') {
-        output = (firstNum / secondNum).toString();
-      }
+      var userInput = input;
+      userInput = input.replaceAll('x', '*');
+      Parser p = Parser();
+      Expression exp = p.parse(userInput);
+      ContextModel cm = ContextModel();
+      double eval = exp.evaluate(EvaluationType.REAL, cm);
+    }
   }
 
   @override
